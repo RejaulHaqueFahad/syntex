@@ -37,6 +37,11 @@ body {
   font-weight: bold;
   font-display: swap;
 }
+* {
+  font-family: "Montserrat";
+  color: #ffffff;
+}
+
 .hero {
   background-color: #000000;
   padding-top: 80px;
@@ -57,13 +62,13 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  animation: fade-inout 2s alternate;
+  animation: fade-inout 1.5s 1;
 }
 @keyframes fade-inout {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
@@ -80,21 +85,29 @@ body {
   margin-right: auto;
 }
 .hero__right-title {
-  font-family: "Montserrat";
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
-  color: #ffffff;
   text-align: center;
-  overflow: hidden;
-  width: 15ch;
-  animation: typing 2s;
-  white-space: nowrap;
-  overflow: hidden;
+  position: relative;
+}
+.hero__right-title::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  animation: typing 1.5s steps(40) 1;
+  animation-delay: 0.5s;
 }
 @keyframes typing {
   from {
-    width: 0;
+    background: #000000;
+    transform: translateX(0%);
+  }
+  to {
+    background: #000000;
+    transform: translateX(100%);
   }
 }
 .hero__right-para-wrap {
@@ -106,21 +119,34 @@ body {
   margin-right: auto;
 }
 .hero__right-para {
-  font-family: "Montserrat";
   font-weight: normal;
   font-size: 18px;
   text-align: center;
   line-height: 32px;
-  color: #ffffff;
   text-align: center;
-  animation: slide-up 900ms forwards, fade-inout 1s forwards;
+  animation: slide-up 1s;
+  animation-delay: 1.5s;
+}
+.hero__right-button {
+  background-color: #ffffff;
+  padding: 13px 47px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  display: block;
+  animation: slide-up 1s;
+  animation-delay: 1.5s;
 }
 @keyframes slide-up {
   0% {
     transform: translateY(100%);
+    opacity: 0;
   }
   100% {
     transform: translateY(0%);
+    opacity: 1;
   }
 }
 .hero__right-button-wrap {
@@ -131,25 +157,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-}
-.hero__right-button {
-  background-color: #ffffff;
-  padding: 13px 47px;
-  text-decoration: none;
-  font-family: "Montserrat";
-  font-weight: bold;
-  color: #000000;
-  border: 1px solid #ffffff;
-  border-radius: 4px;
-  animation: slide-up 900ms forwards, fade-inout 1s forwards;
-}
-@keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
 }
 
 @media all and (min-width: 980px) {
